@@ -1,3 +1,14 @@
+"""Geoprocessing Functions for Satellite Data
+    
+This module provides functions to load satellite data from TIFF files, extract geospatial metadata,
+and preprocess the data for various machine learning models, it supports reading specific bands, 
+resizing images, and normalizing pixel values :
+
+    * load_satellite_data - reads a TIFF (.tif) file and returns the data as a PyTorch tensor along with metadata.
+    * extract_geo_metadata - extracts geospatial metadata from the loaded data.
+    * preprocess_for_models - preprocesses the data for different models, handling band counts.
+"""
+
 import torch
 import rasterio
 import torchvision.transforms as transforms
