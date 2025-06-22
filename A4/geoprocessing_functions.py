@@ -1,7 +1,5 @@
 import torch
-import numpy as np
 import rasterio
-from rasterio.crs import CRS
 import torchvision.transforms as transforms
 from typing import Dict, Any, Optional, List
 
@@ -115,7 +113,7 @@ def preprocess_for_models(image_data: Dict[str, Any],
         
         current_size = (processed_tensor.shape[1], processed_tensor.shape[2])
         if current_size != input_size:
-            resize_transform = transforms.Resize(input_size, antialias=True)
+            resize_transform = transforms.Resize(input_size)
             processed_tensor = resize_transform(processed_tensor)
         
         # Apply normalization if specified
